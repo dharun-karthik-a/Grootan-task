@@ -3,7 +3,6 @@
 # Grootan Coding Task
 consuming a mock api and displaying content
 
-This is a sample project that a novice django developer can use to get started.
 
 ## Demo
 
