@@ -6,7 +6,7 @@ consuming a mock api and displaying content
 
 ## Demo
 
-[Grootan Task] (https://djangoapptask.herokuapp.com/ “heroku”) 
+[Grootan Task] (http://dkdharun.pythonanywhere.com/) 
 ## Features
 
 - Simple UI
