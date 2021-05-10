@@ -1,15 +1,13 @@
- ###Grootan Coding Task
- #####Consuming a mock API and displaying the contents
-> [Demo] (https://www.youtube.com “heroku”) 
 
-# Django-to-do
-A dead simple Django ToDo Web App
+
+# Grootan Coding Task
+consuming a mock api and displaying content
 
 This is a sample project that a novice django developer can use to get started.
 
 ## Demo
 
-[Grootan Task](https://www.youtube.com “heroku”) 
+[Grootan Task] (https://djangoapptask.herokuapp.com/ “heroku”) 
 ## Features
 
 - Simple UI
