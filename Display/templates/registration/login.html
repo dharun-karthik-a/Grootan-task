@@ -1,0 +1,87 @@
+{% extends 'registration/base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<!-- <h2>Log In</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Log In</button>
+</form> -->
+
+
+
+      <!-- <div class="col-md-4 mt-5">
+
+          <form method="post" class="text-center border border-secondary p-5">
+
+              <p class="h4 mb-4">Login</p>
+
+              {% csrf_token %}
+
+              <p>
+                  <p>
+                      <p><input id="id_username" name="username" placeholder="Username" type="text" class="form-control"></p>
+                  </p>
+                  <p>
+                      <p><input id="id_password" name="password" 
+                      placeholder="Password" type="password" class="form-control"></p>
+                  </p>
+              </p>
+              {% if form.errors %}
+                  <p class="text-danger">
+                      Your username and password didn't match. 
+                      Please try again.
+                  </p>
+              {% endif %}
+
+           
+              <button class="btn btn-secondary btn-block my-4" type="submit">Sign in</button>                
+              
+            
+              <p> <a href="{% url 'signup' %}">Sign Up</a>
+              </p>
+              
+          </form>                
+
+      </div>
+
+      <div class="col-md-2"></div>
+
+  </div> -->
+
+
+
+
+<div class="login">
+    <div class="login-header">
+      <h1>Login</h1>
+    </div>
+    <div class="login-form">
+      <form method="post">
+        {% csrf_token %}
+      <h3>Username:</h3>
+          <input id="id_username" name="username" placeholder="Username" type="text" class="form-control"><br>
+      <h3>Password:</h3>
+      <input id="id_password" name="password" placeholder="Password" type="password" class="form-control">
+      <br>
+      {% if form.errors %}
+      <p style="color: blue ;">
+          Your username and password didn't match. 
+          Please try again.
+      </p>
+        {% endif %}
+      <button class="btn btn-secondary btn-block my-4" type="submit">Login</button>
+      <br>
+      </form>
+      <a class="sign-up" href="{% url 'signup' %}">Sign Up!</a>
+    </div>
+  </div>
+  
+
+
+
+{% endblock %}
+
+

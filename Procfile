@@ -1,0 +1,1 @@
+web: gunicorn GootanTask.wsgi --log-file -

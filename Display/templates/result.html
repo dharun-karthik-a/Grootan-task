@@ -1,0 +1,126 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Display{% endblock %}</title>
+  <script type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="{% static 'display.css' %}">
+
+</head>
+<body>
+    <div class="logout">
+        <a href="{% url 'logout' %}">Log Out</a>
+    </div>
+<table >
+    <thead>
+      <tr>
+        <th>NAME</th>
+        <th>AGE</th>
+      </tr>
+    <thead>
+    <tbody>
+        {% for n in nameAge %}
+      <tr onclick = "expand('{{n.0}}',0)">
+        <td>{{n.0}}</td>
+        <td>{{n.1}}</td>
+      </tr>
+      {% endfor %}
+
+      
+    </tbody>
+</table>
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <table class="table">
+        
+        <tbody>
+            <tr>
+                <td>First Name</td>
+                <td id ="fn"></td>
+            </tr>
+            
+            <tr>
+                <td>Last Name</td>
+                <td id ="ln"></td>
+            </tr>
+
+            <tr>
+                <td>Date of Birth</td>
+                <td id ="dob"></td>
+            </tr>
+
+            <tr>
+                <td>Age</td>
+                <td id ="age"></td>
+            </tr>
+
+            <tr>
+                <td>Phone</td>
+                <td id ="ph"></td>
+            </tr>
+
+            <tr>
+                <td>Address</td>
+                <td id ="address"></td>
+            </tr>
+
+            </tbody>
+        </table>
+
+     <div class="modal-footer">
+        <button type="button" id="prev">Prev</button>
+        <button type="button" id="next">Next</button>
+      </div>
+    </div>
+     
+
+  
+  </div>
+  
+
+<script>
+    var ls= {{data|safe}};
+    var span = document.getElementsByClassName("close")[0];
+    var modal =document.getElementById("myModal");
+    var cname ="";
+    var prev = document.getElementById("prev");
+    var next = document.getElementById("next");
+   
+
+    function expand(name,flag) {
+        for(var i=0;i<ls.length;i++){
+            if(ls[i]["name"]==name){
+                cname=ls[i+flag]["name"]
+                document.getElementById("fn").innerHTML =ls[i+flag]["firstName"]
+                document.getElementById("ln").innerHTML =ls[i+flag]["lastName"]
+                document.getElementById("dob").innerHTML =ls[i+flag]["dob"]
+                document.getElementById("age").innerHTML =ls[i+flag]["age"]
+                popup(ls[i+flag]["more"])
+            }
+        }
+    }
+    function popup(more) {
+        document.getElementById("address").innerHTML =more["address_line1"]+', \n'+more["address_line2"];
+        document.getElementById("ph").innerHTML =more["phone"]
+        modal.style.display = "block";
+
+    }
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    next.onclick =function(){
+        expand(cname,1);
+    }
+    prev.onclick =function(){
+        expand(cname,-1);
+    }
+
+</script>
+</body>
+</html>
